@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pass The Message Project</title>
+</head>
+<body>
+    <section>
+        <h2>Put Your Message</h2>
+        <form id="form" action="">
+            <input type="text" id="msg">
+            <input type="submit" id="btn">
+        </form>
+        <h5 class="feedback">Please write your message.</h5>
+        <h3>Last Message Delivered</h3>
+        <h2 class="msg-content">Hello World</h2>
+    </section>
+
+
+    <script>
+        const form = document.getElementById("form");
+        const msg = document.querySelector("#msg");
+        const msgContent = document.querySelector(".msg-content");
+        const feedback = document.querySelector(".feedback");
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            if(msg.value === ''){
+                feedback.classList.add('show');
+                setTimeout(function(){
+                feedback.classList.remove('show');
+                }, 2000);
+            } else {
+                msgContent.textContent = msg.value;
+                msg.value = '';
+            }
+
+        })
+
+
+    </script>
+</body>
+</html>
